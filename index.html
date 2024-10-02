@@ -20,13 +20,14 @@
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
+            bottom: 100px; /* Prevent the container from covering the cookie banner */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
             text-align: center;
             z-index: 10; /* Make sure the text is above the iframe */
+            padding-bottom: 50px; /* Extra padding to move text up a bit */
         }
 
         h1 {
@@ -39,10 +40,11 @@
         .text-above-circle {
             margin-bottom: 20px;
             font-size: 1.5em;
+            padding-top: 80px; /* Adjust to raise the text */
         }
 
         .text-below-circle {
-            margin-top: 20px;
+            margin-top: 30px; /* Adjust to raise questions */
             font-size: 1.2em;
         }
 
