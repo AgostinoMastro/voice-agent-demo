@@ -26,8 +26,13 @@
             justify-content: space-between;
             align-items: center;
             text-align: center;
-            z-index: 10; /* Make sure the text is above the iframe */
+            z-index: 10; /* Ensure the text is above the iframe but below interactive content */
+            pointer-events: none; /* Disable pointer events for the container, so the iframe remains clickable */
             padding-bottom: 50px; /* Extra padding to move text up a bit */
+        }
+
+        .text-above-circle, .text-below-circle {
+            pointer-events: all; /* Re-enable pointer events for the text areas */
         }
 
         h1 {
