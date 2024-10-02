@@ -36,20 +36,20 @@
         }
 
         h1 {
-            margin-top: 30px;
+            margin-top: 20px;
             padding: 20px 0;
             font-size: 2em;
             color: white;
         }
 
         .text-above-circle {
-            margin-bottom: 200px;
+            margin-bottom: 20px;
             font-size: 1.5em;
-            padding-top: 40px; /* Adjust to raise the text */
+            padding-top: 80px; /* Adjust to raise the text */
         }
 
         .text-below-circle {
-            margin-top: 70px; /* Adjust to raise questions */
+            margin-top: 30px; /* Adjust to raise questions */
             font-size: 1.2em;
         }
 
@@ -66,6 +66,26 @@
         ul {
             list-style-type: none;
             padding: 0;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .container {
+                bottom: 150px; /* Increase bottom padding for cookie banner */
+            }
+
+            .text-above-circle {
+                padding-top: 50px; /* Adjust padding on mobile */
+            }
+
+            .text-below-circle {
+                margin-top: 10px; /* Adjust margin on mobile */
+                font-size: 1em; /* Smaller text on mobile */
+            }
+
+            h1 {
+                font-size: 1.5em; /* Smaller heading on mobile */
+            }
         }
     </style>
 </head>
