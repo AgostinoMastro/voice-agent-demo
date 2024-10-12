@@ -68,6 +68,18 @@
             padding: 0;
         }
 
+        /* Style for the "Book a Demo" button */
+        .demo-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #039BE5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
         /* Mobile adjustments */
         @media (max-width: 768px) {
             .container {
@@ -86,11 +98,13 @@
             h1 {
                 font-size: 1.5em; /* Smaller heading on mobile */
             }
+
+            .demo-button {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
         }
     </style>
-    <!-- Google Calendar Appointment Scheduling begin -->
-    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-    <!-- end Google Calendar Appointment Scheduling -->
 </head>
 <body>
     <!-- Container for the overlaying text -->
@@ -109,25 +123,11 @@
                 <li>3. I'd like to schedule a service appointment today.</li>
             </ul>
             <!-- "Book a Demo" button -->
-            <div id="calendar-button"></div>
+            <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vr4_0w-tc1Zn08levkb8bg9UehqY3T6NzEs6nymvupwFyKrwCb3kDw2Z8-yLEjyvnQBKPQCZF?gv=true" target="_blank" class="demo-button">Book a Demo</a>
         </div>
     </div>
 
     <!-- Full-page VAPI iframe -->
     <iframe src="https://vapi.ai/?demo=true&shareKey=1e162168-840f-45fc-8a99-89585a33047b&assistantId=8ea6cde1-468b-4841-b9a9-3906a0078e89" allow="microphone; autoplay"></iframe>
-
-    <!-- Include the Google Calendar script and initialize the button after it loads -->
-    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" onload="loadCalendarButton()"></script>
-    <script>
-    function loadCalendarButton() {
-        var target = document.getElementById('calendar-button');
-        window.calendar.schedulingButton.load({
-            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vr4_0w-tc1Zn08levkb8bg9UehqY3T6NzEs6nymvupwFyKrwCb3kDw2Z8-yLEjyvnQBKPQCZF?gv=true',
-            color: '#dbff00',
-            label: 'Book a Demo',
-            target: target,
-        });
-    }
-    </script>
 </body>
 </html>
