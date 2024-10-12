@@ -88,12 +88,16 @@
             }
         }
     </style>
+    <!-- Google Calendar Appointment Scheduling begin -->
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    <!-- end Google Calendar Appointment Scheduling -->
 </head>
 <body>
     <!-- Container for the overlaying text -->
     <div class="container">
         <h1>Welcome to Revalate's Voice Agent demo for an HVAC service and repair company</h1>
-        
+
         <!-- Text above the circle/button -->
         <div class="text-above-circle">Click the circle to start talking with Sophie!</div>
 
@@ -105,6 +109,21 @@
                 <li>2. I have an issue with (describe your equipment).</li>
                 <li>3. I'd like to schedule a service appointment today.</li>
             </ul>
+            <!-- "Book a Demo" button -->
+            <div id="calendar-button"></div>
+            <script>
+            (function() {
+              var target = document.getElementById('calendar-button');
+              window.addEventListener('load', function() {
+                calendar.schedulingButton.load({
+                  url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vr4_0w-tc1Zn08levkb8bg9UehqY3T6NzEs6nymvupwFyKrwCb3kDw2Z8-yLEjyvnQBKPQCZF?gv=true',
+                  color: '#039BE5',
+                  label: 'Book a Demo',
+                  target,
+                });
+              });
+            })();
+            </script>
         </div>
     </div>
 
