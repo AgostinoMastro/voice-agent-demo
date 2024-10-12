@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voice Agent Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Calendar Appointment Scheduling begin -->
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+    <!-- end Google Calendar Appointment Scheduling -->
     <style>
         /* Apply black background and cover the entire page with the iframe */
         body, html {
@@ -68,16 +71,27 @@
             padding: 0;
         }
 
-        /* Style for the "Book a Demo" button */
-        .demo-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #dffa56;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
+        /* Adjust the Google Calendar overlay */
+        .gc-popup-wrapper {
+            position: fixed !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: 800px !important;
+            height: 600px !important;
+            max-width: 90% !important;
+            max-height: 90% !important;
+            z-index: 10000 !important;
+        }
+
+        .gc-overlay {
+            background: rgba(0, 0, 0, 0.5) !important;
+            z-index: 9999 !important;
+        }
+
+        .gc-dialog {
+            width: 100% !important;
+            height: 100% !important;
         }
 
         /* Mobile adjustments */
@@ -99,9 +113,9 @@
                 font-size: 1.5em; /* Smaller heading on mobile */
             }
 
-            .demo-button {
-                font-size: 1em;
-                padding: 8px 16px;
+            .gc-popup-wrapper {
+                width: 90% !important;
+                height: 80% !important;
             }
         }
     </style>
@@ -123,11 +137,29 @@
                 <li>3. I'd like to schedule a service appointment today.</li>
             </ul>
             <!-- "Book a Demo" button -->
-            <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vr4_0w-tc1Zn08levkb8bg9UehqY3T6NzEs6nymvupwFyKrwCb3kDw2Z8-yLEjyvnQBKPQCZF?gv=true" target="_blank" class="demo-button">Book a Demo</a>
+            <div id="calendar-button"></div>
         </div>
     </div>
 
     <!-- Full-page VAPI iframe -->
-    <iframe src="https://vapi.ai/?demo=true&shareKey=1e162168-840f-45fc-8a99-89585a33047b&assistantId=8ea6cde1-468b-4841-b9a9-3906a0078e89" allow="microphone; autoplay"></iframe>
+    <iframe src="https://vapi.ai/?demo=true&amp;shareKey=1e162168-840f-45fc-8a99-89585a33047b&amp;assistantId=8ea6cde1-468b-4841-b9a9-3906a0078e89" allow="microphone; autoplay"></iframe>
+
+    <!-- Google Calendar Appointment Scheduling script and initialization -->
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    <script>
+    (function() {
+      var target = document.getElementById('calendar-button');
+      window.addEventListener('load', function() {
+        calendar.schedulingButton.load({
+          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vr4_0w-tc1Zn08levkb8bg9UehqY3T6NzEs6nymvupwFyKrwCb3kDw2Z8-yLEjyvnQBKPQCZF?gv=true',
+          color: '#dffa56',
+          label: 'Book a Demo',
+          target: target,
+          // Attempt to open in a popup
+          openIn: 'popup',
+        });
+      });
+    })();
+    </script>
 </body>
 </html>
