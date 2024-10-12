@@ -90,7 +90,6 @@
     </style>
     <!-- Google Calendar Appointment Scheduling begin -->
     <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
     <!-- end Google Calendar Appointment Scheduling -->
 </head>
 <body>
@@ -111,23 +110,24 @@
             </ul>
             <!-- "Book a Demo" button -->
             <div id="calendar-button"></div>
-            <script>
-            (function() {
-              var target = document.getElementById('calendar-button');
-              window.addEventListener('load', function() {
-                calendar.schedulingButton.load({
-                  url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vr4_0w-tc1Zn08levkb8bg9UehqY3T6NzEs6nymvupwFyKrwCb3kDw2Z8-yLEjyvnQBKPQCZF?gv=true',
-                  color: '#039BE5',
-                  label: 'Book a Demo',
-                  target,
-                });
-              });
-            })();
-            </script>
         </div>
     </div>
 
     <!-- Full-page VAPI iframe -->
     <iframe src="https://vapi.ai/?demo=true&shareKey=1e162168-840f-45fc-8a99-89585a33047b&assistantId=8ea6cde1-468b-4841-b9a9-3906a0078e89" allow="microphone; autoplay"></iframe>
+
+    <!-- Include the Google Calendar script and initialize the button after it loads -->
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" onload="loadCalendarButton()"></script>
+    <script>
+    function loadCalendarButton() {
+        var target = document.getElementById('calendar-button');
+        window.calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vr4_0w-tc1Zn08levkb8bg9UehqY3T6NzEs6nymvupwFyKrwCb3kDw2Z8-yLEjyvnQBKPQCZF?gv=true',
+            color: '#039BE5',
+            label: 'Book a Demo',
+            target: target,
+        });
+    }
+    </script>
 </body>
 </html>
